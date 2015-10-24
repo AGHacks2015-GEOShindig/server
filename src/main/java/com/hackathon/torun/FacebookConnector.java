@@ -6,13 +6,13 @@ import com.restfb.FacebookClient;
 import com.restfb.Parameter;
 import com.restfb.exception.FacebookException;
 import com.restfb.types.Event;
-import com.restfb.types.FacebookType;
 import com.restfb.types.Page;
 import com.restfb.types.User;
 
 /**
  * Created by lukasz on 23.10.15.
  */
+
 public class FacebookConnector {
 
     /* Variables */
@@ -43,8 +43,9 @@ public class FacebookConnector {
     public Connection<Event> makeTestPost() {
         Connection<Event> eventList =
                 fbClient.fetchConnection("search", Event.class,
-                        Parameter.with("q", "torun"), Parameter.with("type", "event"),
-                        Parameter.with("limit","1000"));
+                        Parameter.with("q", "krakow"), Parameter.with("type", "event"),
+                        Parameter.with("limit", "1000"),
+                        Parameter.with("fields", "description,location,place,endTime,picture,owner"));
 
 
         return eventList;
